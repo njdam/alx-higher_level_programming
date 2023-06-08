@@ -3,9 +3,7 @@
 
 if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
-    import sys
-    argv = sys.argv
-    exit = sys.exit
+    from sys import argv, exit
 
     argc = len(argv) - 1  # To remove count for a program
 
