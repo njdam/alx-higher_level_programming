@@ -2,7 +2,10 @@
 # A program to import and handle basic mathematical operations
 
 if __name__ == "__main__":
-    from sys import argv, exit
+    import sys
+    argv = sys.argv
+    exit = sys.exit
+
     argc = len(argv) - 1  # To remove count for a program
 
     if argc != 3:
@@ -20,16 +23,12 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
     if op[:1] == "+":
         print("{} {} {} = {}".format(a, op, b, add(a, b)))
-        exit(0)
 
     if op[:1] == "-":
         print("{} {} {} = {}".format(a, op, b, sub(a, b)))
-        exit(0)
 
     if op[:1] == "*":
         print("{} {} {} = {}".format(a, op, b, mul(a, b)))
-        exit(0)
 
     if op[:1] == "/":
         print("{} {} {} = {}".format(a, op, b, div(a, b)))
-        exit(0)
