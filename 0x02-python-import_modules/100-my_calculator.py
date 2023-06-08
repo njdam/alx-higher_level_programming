@@ -14,21 +14,12 @@ if __name__ == "__main__":
         exit(1)
 
     a = int(argv[1])
-    op = argv[2]  # This is operator like +, -, * and /
+    op = {"+": add, "-": sub, "*": mul, "/": div}  # Allowed operators
     b = int(argv[3])
 
-    if len(op) != 1 or op[:1] != ('+' or '-' or '*' or '/'):
+    if argv[2] not in list(op.keys()):
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
-    if op[:1] == "+":
-        print("{} {} {} = {}".format(a, op, b, add(a, b)))
-
-    elif op[:1] == "-":
-        print("{} {} {} = {}".format(a, op, b, sub(a, b)))
-
-    elif op[:1] == "*":
-        print("{} {} {} = {}".format(a, op, b, mul(a, b)))
-
-    elif op[:1] == "/":
-        print("{} {} {} = {}".format(a, op, b, div(a, b)))
+    result = op[argv[2]](a,b)
+    print("{} {} {} = {}".format(a, argv[2], b, result))
