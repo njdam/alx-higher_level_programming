@@ -60,3 +60,21 @@ from os import write; write(1, "#pythoniscool\n".encode("UTF-8"))
 
 [Note](Easy_print): `1` in `write` is To print in standard output, where `encode("UTF-8")` converts the string to a byte sequence encoded in UTF-8 format, as the write method expects bytes as input. Then Semicolon (;) is not acceptable in `pycodestyle` to check python code.
 
+9. Q.102 Fast alphabet
+
+Write a program that prints the alphabet in uppercase, followed by a new line.
+
+Your program should be maximum 3 lines long
+You are not allowed to use:
+any loops
+any conditional statements
+str.join()
+any string literal
+any system calls
+
+For another option but not acceptable because of `str.join()` to do this question is as follows:
+```
+#!/usr/bin/python3
+import string
+print(''.join(getattr(string, 'ascii_uppercase')))
+```
