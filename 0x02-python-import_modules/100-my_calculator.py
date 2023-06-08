@@ -2,6 +2,7 @@
 # A program to import and handle basic mathematical operations
 
 if __name__ == "__main__":
+    from calculator_1 import add, sub, mul, div
     import sys
     argv = sys.argv
     exit = sys.exit
@@ -20,15 +21,14 @@ if __name__ == "__main__":
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
-    from calculator_1 import add, sub, mul, div
     if op[:1] == "+":
         print("{} {} {} = {}".format(a, op, b, add(a, b)))
 
-    if op[:1] == "-":
+    elif op[:1] == "-":
         print("{} {} {} = {}".format(a, op, b, sub(a, b)))
 
-    if op[:1] == "*":
+    elif op[:1] == "*":
         print("{} {} {} = {}".format(a, op, b, mul(a, b)))
 
-    if op[:1] == "/":
+    elif op[:1] == "/":
         print("{} {} {} = {}".format(a, op, b, div(a, b)))
