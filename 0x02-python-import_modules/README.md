@@ -39,4 +39,24 @@ then you can change the name of `modname` or modname's items as follows:
 >>> import importlib
 >>> importlib.reload(modname)
 ```
- 
+
+## PROJECT TASKS
+
+### ADVANCED
+
+Q.101 (7) Easy print: Another to print that but not acceptable answer as follows:
+
+```
+#!/usr/bin/python3
+import os
+os.write(1, "#pythoniscool\n".encode("UTF-8"))
+```
+or `1` in `write` is Toprint in standard output, where `encode("UTF-8")` converts the string to a byte sequence encoded in UTF-8 format, as the write method expects bytes as input.
+
+```
+#!/usr/bin/python3
+from os import write; write(1, "#pythoniscool\n".encode("UTF-8"))
+```
+
+[Note](Easy_print): `1` in `write` is To print in standard output, where `encode("UTF-8")` converts the string to a byte sequence encoded in UTF-8 format, as the write method expects bytes as input. Then Semicolon (;) is not acceptable in `pycodestyle` to check python code.
+
