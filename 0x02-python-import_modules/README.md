@@ -44,7 +44,7 @@ then you can change the name of `modname` or modname's items as follows:
 
 ### ADVANCED
 
-Q.101 (7) Easy print [NoteThat](In script of two line): Another to print that but not acceptable answer as follows:
+7. Q.101: Easy print [NoteThat](In script of two line): Another to print that but not acceptable answer as follows:
 
 ```
 #!/usr/bin/python3
