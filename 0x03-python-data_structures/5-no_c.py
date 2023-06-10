@@ -3,5 +3,8 @@
 
 
 def no_c(my_string):
-    new_string = [c for c in my_string if ord(c) != 67 and ord(c) != 99]
-    return ("".join(new_string))
+    newstr = ""
+    for c in my_string:
+        if ord(c) != 67 and ord(c) != 99:
+            newstr += c
+    return (newstr)
