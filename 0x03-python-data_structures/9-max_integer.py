@@ -6,7 +6,7 @@ def max_integer(my_list=[]):
     lens = len(my_list)
 
     if lens == 0:
-        return ("None")
+        return (None)
 
     else:
         num = 0
