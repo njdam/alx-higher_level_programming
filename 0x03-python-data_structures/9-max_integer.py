@@ -9,12 +9,9 @@ def max_integer(my_list=[]):
         return (None)
 
     else:
-        num = 0
-        for i in range(lens - 1):
-            if my_list[i] < my_list[i + 1] and my_list[i + 1] > num:
-                num = my_list[i + 1]
+        maxim = my_list[0]
+        for i in range(lens):
+            if my_list[i] > maxim:
+                maxim = my_list[i]
 
-            elif my_list[i] > num:
-                num = my_list[i]
-
-        return (num)
+        return (maxim)
