@@ -7,11 +7,10 @@ def max_integer(my_list=[]):
 
     if lens == 0:
         return (None)
+    
+    num = my_list[0]
+    for i in range(lens):
+        if my_list[i] > num:
+            num = my_list[i]
 
-    else:
-        maxim = my_list[0]
-        for i in range(lens):
-            if my_list[i] > maxim:
-                maxim = my_list[i]
-
-        return (maxim)
+    return (num)
