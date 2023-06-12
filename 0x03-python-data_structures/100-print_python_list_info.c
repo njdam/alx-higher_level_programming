@@ -1,11 +1,11 @@
 #include <Python.h>
 
 /**
- * print_python_list_info - a function to print some basic info about Python lists.
+ * print_python_list_info - a function to print basic info about Python lists.
  *
  * @p: is a Python object list.
  *
- * Return: nothing.
+ * Return: type is void nothing to be returned.
  */
 void print_python_list_info(PyObject *p)
 {
