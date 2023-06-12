@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	listint_t *sec_half = NULL, *fst_half = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
-		return (1); /* is Palindrome */
+		return (1); /* is Palindrome if list is empty */
 
 	while (hare && hare->next)
 	{
