@@ -9,7 +9,7 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t max, size, i = 0; /* Py_ssize_t or long int */
+	long int max, size, i = 0; /* `long int` to replace `Py_ssize_t` */
 	char *str;
 
 	printf("[.] bytes object info\n");
@@ -55,7 +55,7 @@ void print_python_bytes(PyObject *p)
 void print_python_list(PyObject *p)
 {
 	PyListObject *list = (PyListObject *)p;
-	Py_ssize_t i = 0, allocates, size = ((PyVarObject *)(p))->ob_size;
+	long int i = 0, allocates, size = ((PyVarObject *)(p))->ob_size;
 	PyObject *object;
 
 	printf("[*] Python list info\n");
