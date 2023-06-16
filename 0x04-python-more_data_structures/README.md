@@ -73,3 +73,20 @@ def common_elements(set_1, set_2):
 ```
 Only print exclusive (^) elements in only one set of elements.
 ```
+
+## ADVANCED
+
+** 103-python.c **
+
+***line 12***: `Py_ssize_t` is `Py_ssize_t`.
+
+***line 22***: `((PyVarObject *)(p))->ob_size` to replace `PyBytes_Size(p)` for returning length or size of string (object) to be printed with it's bytes.
+
+***line 24***: `((PyBytesObject *)p)->ob_sval` to replace `PyBytes_AsString(p) for returning a string (object) to be printed with it's bytes.`
+
+***line 67***: `((PyListObject *)p)->ob_item[i]` to replace `PyList_GetItem(p, i);` for returning object item at index `i`.
+
+***line 69***: `(object)->ob_type)->tp_name` to replace `Py_TYPE(object)->tp_name` for returning type name of object's item at index `i` to be printed with it's index `i`.
+
+----------------------------------Thank You !!!----------------------------------
+

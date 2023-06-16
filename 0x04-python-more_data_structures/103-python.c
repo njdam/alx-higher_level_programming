@@ -19,9 +19,7 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
-	/* `((PyVarObject *)(p))->ob_size` to replace `PyBytes_Size(p)` */
 	size = ((PyVarObject *)(p))->ob_size;
-	/* `((PyBytesObject *)p)->ob_sval` to replace `PyBytes_AsString(p)` */
 	str = ((PyBytesObject *)p)->ob_sval;
 
 	printf("  size: %ld\n", size);
@@ -66,9 +64,7 @@ void print_python_list(PyObject *p)
 
 	while (i < size)
 	{
-		/* `((PyListObject *)p)->ob_item[i]` to replace `PyList_GetItem(p, i);` */
 		object = list->ob_item[i];
-		/* (object)->ob_type)->tp_name to replace Py_TYPE(object)->tp_name */
 		printf("Element %ld: %s\n", i, ((object)->ob_type)->tp_name);
 
 		if (PyBytes_Check(object))
