@@ -11,14 +11,14 @@ void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t max, size, i = 0; /* Py_ssize_t or long int */
 	char *str;
-	
+
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p)) /* to check if it is Bytes object */
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	
+
 	/* `((PyVarObject *)(p))->ob_size` to replace `PyBytes_Size(p)` */
 	size = ((PyVarObject *)(p))->ob_size;
 	/* `((PyBytesObject *)p)->ob_sval` to replace `PyBytes_AsString(p)` */
@@ -26,7 +26,7 @@ void print_python_bytes(PyObject *p)
 
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
-	
+
 	if (size >= 10)
 		max = 10;
 	else
@@ -42,12 +42,12 @@ void print_python_bytes(PyObject *p)
 			printf(" %02x", 256 + str[i]);
 		i++;
 	}
-	
+
 	printf("\n");
 }
 
 /**
- * print_python_list - is a function to print some basic info about python list;
+ * print_python_list - function to print some basic info about python list;
  * @p: is a python object which contain required basic info;
  *
  * Return: type is void.
