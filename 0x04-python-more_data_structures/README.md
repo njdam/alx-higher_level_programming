@@ -78,15 +78,15 @@ Only print exclusive (^) elements in only one set of elements.
 
 ** 103-python.c **
 
-***line 12***: `Py_ssize_t` is `Py_ssize_t`.
+***line 12***: `Py_ssize_t` is `long int`.
 
 ***line 22***: `((PyVarObject *)(p))->ob_size` to replace `PyBytes_Size(p)` for returning length or size of string (object) to be printed with it's bytes.
 
-***line 24***: `((PyBytesObject *)p)->ob_sval` to replace `PyBytes_AsString(p) for returning a string (object) to be printed with it's bytes.`
+***line 23***: `((PyBytesObject *)p)->ob_sval` to replace `PyBytes_AsString(p) for returning a string (object) to be printed with it's bytes.`
 
 ***line 67***: `((PyListObject *)p)->ob_item[i]` to replace `PyList_GetItem(p, i);` for returning object item at index `i`.
 
-***line 69***: `(object)->ob_type)->tp_name` to replace `Py_TYPE(object)->tp_name` for returning type name of object's item at index `i` to be printed with it's index `i`.
+***line 68***: `(object)->ob_type)->tp_name` to replace `Py_TYPE(object)->tp_name` for returning type name of object's item at index `i` to be printed with it's index `i`.
 
 ----------------------------------Thank You !!!----------------------------------
 
