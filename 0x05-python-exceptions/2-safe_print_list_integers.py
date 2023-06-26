@@ -5,11 +5,9 @@ def safe_print_list_integers(my_list=[], x=0):
     rval = 0
     for i in range(x):
         try:
-            value = int(my_list[i])
-        except (IndexError, ValueError, TypeError):
-            continue
-        else:
+            print("{:d}".format(my_list[i]), end="")
             rval += 1
-            print("{:d}".format(value), end="")
+        except (ValueError, TypeError):
+            pass
     print("")
     return (rval)
