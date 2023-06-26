@@ -1,5 +1,4 @@
 #!/usr/bin/pyhton3
-# A function to an integer.
 
 import sys
 
