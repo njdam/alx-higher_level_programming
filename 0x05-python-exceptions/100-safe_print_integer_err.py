@@ -1,8 +1,10 @@
 #!/usr/bin/pyhton3
 # A function to an integer.
 
+import sys
+
+
 def safe_print_integer_err(value):
-    import sys
     try:
         print("{:d}".format(value))
         return (True)
