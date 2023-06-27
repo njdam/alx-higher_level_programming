@@ -33,8 +33,10 @@ void print_python_list(PyObject *p)
 	{
 		type_name = list->ob_item[i]->ob_type->tp_name;
 		printf("Element %ld: %s\n", i, type_name);
+
 		if (strcmp(type_name, "bytes") == 0)
 			print_python_bytes(list->ob_item[i]);
+
 		else if (strcmp(type_name, "float") == 0)
 			print_python_float(list->ob_item[i]);
 		i++;
