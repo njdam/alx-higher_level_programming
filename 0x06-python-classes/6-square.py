@@ -17,7 +17,7 @@ class Square:
 
     @property
     def size(self):
-        """Getting current value of size of a square"""
+        """Getting current value of size of a square."""
         return (self.__size)
 
     @size.setter
@@ -43,7 +43,7 @@ class Square:
         """Getting current values of position of a square"""
         return (self.__position)
 
-    @size.setter
+    @position.setter
     def position(self, value):
         """
         If value is not a tuple of two int to raise TypeError with message;
