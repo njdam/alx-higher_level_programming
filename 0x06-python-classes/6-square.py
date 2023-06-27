@@ -52,8 +52,10 @@ class Square:
         Args:
             value (int, int): a position of a square must be tuple of 2 int.
         """
-        if (isinstance(value, tuple) and len(value) == 2 and
-                (isinstance(num, int) for num in value)):
+        if (isinstance(value, tuple) and
+                len(value) == 2 and
+                (isinstance(num, int) for num in value) and
+                (num >= 0 for num in value)):
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
