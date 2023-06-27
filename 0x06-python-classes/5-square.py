@@ -38,7 +38,7 @@ class Square:
             raise TypeError("size must be an integer")
 
     def area(self):
-        """A puplic instance methode to return current square area"""
+        """A puplic instance method to return current square area"""
         return (self.__size ** 2)
 
     def my_print(self):
