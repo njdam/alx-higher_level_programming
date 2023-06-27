@@ -24,7 +24,7 @@ class Square:
         """
         If size is not an integer to raise TypeError with a message;
         If is Less than Zero to raise ValueError with a message;
-        setting current value to size of a square;
+        Setting current value to size of a square;
 
         Args:
             value (int): is size of new square must be an integer not < 0.
