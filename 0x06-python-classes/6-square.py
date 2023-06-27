@@ -7,10 +7,11 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         """
-        Initialisation of new square size;
+        Initialisation of new square size and position of a square
 
         Args:
             size (int): is size of new square must be an integer not < 0.
+            position (int, int): is posistion of a new square.
         """
         self.size = size
         self.position = position
@@ -23,9 +24,9 @@ class Square:
     @size.setter
     def size(self, value):
         """
-        If size is not an integer to raise TypeError with a message;
-        If is Less than Zero to raise ValueError with a message;
-        Setting current value to size of a square;
+        If size is not an integer to raise TypeError with a message
+        If is Less than Zero to raise ValueError with a message
+        Setting current value to size of a square
 
         Args:
             value (int): is size of new square must be an integer not < 0.
@@ -46,8 +47,8 @@ class Square:
     @position.setter
     def position(self, value):
         """
-        If value is not a tuple of two int to raise TypeError with message;
-        Setting current value to a position of a square;
+        If value is not a tuple of two int to raise TypeError with message
+        Setting current value to a position of a square
 
         Args:
             value (int, int): a position of a square must be tuple of 2 int.
