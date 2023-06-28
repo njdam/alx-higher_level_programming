@@ -5,7 +5,7 @@ import math
 
 
 class MagicClass:
-"""A class MagicClass to do the same as Python bytecode."""
+    """A class MagicClass to do the same as Python bytecode."""
 
     def __init__(self, radius=0):
         """
@@ -14,10 +14,10 @@ class MagicClass:
         Arg:
             radius (int or float): is a radius of a new MagicClass.
         """
+
         self.__radius = 0
         if (type(radius) is not int) and (type(radius) is not float):
             raise TypeError("radius must be a number")
-
         self.__radius = radius
 
     def area(self):
