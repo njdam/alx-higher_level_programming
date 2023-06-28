@@ -53,13 +53,12 @@ class Square:
         Args:
             value (int, int): a position of a square must be tuple of 2 int.
         """
-        if (isinstance(value, tuple) and
-                len(value) == 2 and
-                (isinstance(num, int) for num in value) and
-                (num >= 0 for num in value)):
-            self.__position = value
-        else:
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all( isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """A puplic instance method to return current square area"""
@@ -72,10 +71,8 @@ class Square:
             return
 
         [print("") for y in range(self.__position[1])]
-
         for y in range(self.__size):
-            for space in range(self.__position[0]):
-                print("{}".format(" "), end="")
-            for x in range(self.__size):
-                print("{}".format("#"), end="")
+            [print(" ", end="") for space in range(self.__position[0])]
+            [print("#", end="") for x in range(self.__size)]
+
             print("")
