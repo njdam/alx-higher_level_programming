@@ -5,6 +5,7 @@ import math
 
 
 class MagicClass:
+"""A class MagicClass to do the same as Python bytecode."""
 
     def __init__(self, radius=0):
         """
