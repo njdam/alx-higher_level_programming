@@ -1,0 +1,42 @@
+# Test cases for add_integer function to add a and b both must be an integer
+
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test adding two positive integers:
+>>> add_integer(1, 2)
+3
+
+Test adding two negative integers:
+>>> add_integer(-1, -2)
+-3
+
+Test adding a positive and a negative integer:
+>>> add_integer(-1, 2)
+1
+
+Test adding zero and a positive integer:
+>>> add_integer(0, 2)
+2
+
+Test adding zero and a negative integer:
+>>> add_integer(0, -2)
+-2
+
+Test adding floating and non-floating values:
+>>> add_integer(-1.5, 2)
+1
+
+Test adding a to the second argument is optional by default equal to 98
+>>> add_integer(2)
+100
+
+Test adding integer b to a string:
+>>> add_integer("Add me", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+Test adding integer a to a string:
+>>> add_integer(1, "Add me")
+Traceback (most recent call last):
+TypeError: b must be an integer
