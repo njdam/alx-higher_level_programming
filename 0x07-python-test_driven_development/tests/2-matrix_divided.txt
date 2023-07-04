@@ -1,0 +1,115 @@
+# A Test cases for 2-matrix_divided.py file
+
+
+===============================================================
+How to use a function called `matrix_divided` used for division
+===============================================================
+
+This module defines a function called `matrix_divided(matrix, div)` for division of all elements of a matrix.
+
+
+Usage
+=====
+
+A `matrix_divided(matrix, div)` function is a function to divide all elements of matrix by `div` number which may be 0 and will raise ZeroDivisionError exception with message "division by zero".
+
+All elements of a matrix must be integers or floats and will be rounded to 2 decimal places and returns new matrix.
+
+Test Cases Examples
+===================
+
+:: Importing matrix_divided function from 2-matrix_divided.py file
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+I. Tasting for Valid cases in matrix and div
+============================================
+
+>>> matrix = [[1, 0, 7], [77, 10, 4]]
+
+:: If div is a float
+>>> matrix_divided(matrix, 1.0)
+[[1.0, 0.0, 7.0], [77.0, 10.0, 4.0]]
+
+
+:: Test for dividing Natural number
+>>> matrix_divided(matrix, 2)
+[[0.5, 0.0, 3.5], [38.5, 5.0, 2.0]]
+
+
+:: Test for return matrix with results of floating number of two decimal places
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.0, 2.33], [25.67, 3.33, 1.33]]
+
+
+II. Testing Invalid cases in div
+================================
+
+>>> matrix = [[1, 2, 3], [5, 6, 9]]
+
+:: Testing div with a number in a string format
+>>> matrix_divided(matrix, "7")
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+
+:: Testing div with non-number in char format
+>>> matrix_divided(matrix, 'h')
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+
+:: Testing div replaced with undefined variable
+>>> matrix_divided(matrix, h)
+Traceback (most recent call last):
+	...
+NameError: name 'h' is not defined
+
+
+:: Testing div with a number in char format
+>>> matrix_divided(matrix, '2')
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+
+:: Testing div with a number in asccii corresponding to char 1
+>>> matrix_divided(matrix, '49')
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+
+:: Testing div with a number in asccii corresponding to char 2
+>>> matrix_divided(matrix, chr(50))
+Traceback (most recent call last):
+        ...
+TypeError: div must be a number
+
+
+III. Testing Invalid cases in matrix
+====================================
+
+:: Test for matrix without a list of lists
+>>> matrix = [1, 2, 3]
+>>> matrix_divided(matrix, 7)
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+:: Test for using non-numbers elements of a mustrix
+>>> matrix = [[1, 2, 3], ["hello", 7, 3]]
+>>> matrix_divided(matrix, 7)
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+:: Test for length of Each row of the matrix
+>>> matrix = [[1, 2, 3], [4, 7, 3, 5]]
+>>> matrix_divided(matrix, 7)
+Traceback (most recent call last):
+	...
+TypeError: Each row of the matrix must have the same size
