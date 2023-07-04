@@ -11,7 +11,7 @@ This module defines a function called `print_square(size)` for printing square w
 Usage
 =====
 
-A `print_square(size)` function is a function to print a square by # with area equal to size provided times itself and no module to be imported.
+A `print_square(size)` function is a function to print a square by '#' with area equal to size provided times itself and no module to be imported.
 
 
 Test Cases Examples

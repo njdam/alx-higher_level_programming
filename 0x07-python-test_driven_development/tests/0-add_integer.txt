@@ -5,18 +5,21 @@
 How to use the add_integer function to add two parameter a and b
 ================================================================
 
-This module defines a function called `add_integerTest(a, b=98)` to add two integers.
+This module defines a function called `add_integerTest(a, b=98)`
+to add two integers.
 
 Usage
 =====
 
-The function called `add_integer` is a function to return sum of two integeror takes float and casted to integer before it add them together means both a and b must be an integer to be added.
+The function called `add_integer` is a function to return sum of two integer
+or takes float and casted to integer before it add them together means
+both a and b must be an integer to be added.
 
 
 Test Cases Examples
 ===================
 
-I. True Parameters (Numbers)
+I. True Parameters "Numbers"
 ============================
 
 :: Importing function my 0-add_integer.py file
@@ -58,7 +61,7 @@ I. True Parameters (Numbers)
 100
 
 
-II. False Parameters (Non Numbers)
+II. False Parameters "Non Numbers"
 ==================================
 
 :: Test adding integer b to a string
@@ -78,12 +81,12 @@ TypeError: b must be an integer
 :: Test provide infinity float the function will fail
 >>> add_integer(1, float('inf'))
 Traceback (most recent call last):
-        ...
+	...
 OverflowError: cannot convert float infinity to integer
 
 
 :: Test provide float NaN numbers and this will cause function to fail
 >>> add_integer(float('nan'))
 Traceback (most recent call last):
-        ...
+	...
 ValueError: cannot convert float NaN to integer

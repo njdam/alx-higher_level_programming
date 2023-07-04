@@ -19,19 +19,20 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    punct = [".", "?", ":"]
-    line = ""
+    punct = ['.', '?', ':']
+    lens = len(text)
+    i = 0
+    while i in range(lens) and text[i] == ' ':
+        i += 1
 
-    for char in text:
-        line += char
-        if char in punct:
-            line = line.strip()  # to remove trailing white space
-            if line.startswith(" "):  # remove spaces where line starts
-                line = line[1:]
-            print("{}\n".format(line))
-            line = ""  # After printing line start with empty new line
+    while i in range(lens):
+        print(text[i], end="")
 
-    if line.strip():  # if last_line is not empty after removing tr..sapces
-        if line.startswith(" "):  # remove spaces where last line started
-            line = line[1:]
-        print("{}".format(line.strip()), end="")
+        if text[i] in punct or text[i] == '\n':
+            if text[i] in punct:
+                print('\n')
+            i += 1
+            while i in range(lens) and text[i] == ' ':
+                i += 1
+            continue
+        i += 1
