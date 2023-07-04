@@ -1,42 +1,89 @@
-# Test cases for add_integer function to add a and b both must be an integer
+# Test case for testing 0-add_integer.py file.
 
 
+================================================================
+How to use the add_integer function to add two parameter a and b
+================================================================
+
+This module defines a function called `add_integerTest(a, b=98)` to add two integers.
+
+Usage
+=====
+
+The function called `add_integer` is a function to return sum of two integeror takes float and casted to integer before it add them together means both a and b must be an integer to be added.
+
+
+Test Cases Examples
+===================
+
+I. True Parameters (Numbers)
+============================
+
+:: Importing function my 0-add_integer.py file
 >>> add_integer = __import__('0-add_integer').add_integer
 
-Test adding two positive integers:
+
+:: Test adding two positive integers
 >>> add_integer(1, 2)
 3
 
-Test adding two negative integers:
+
+:: Test adding two negative integers
 >>> add_integer(-1, -2)
 -3
 
-Test adding a positive and a negative integer:
+
+:: Test adding a positive and a negative integer
 >>> add_integer(-1, 2)
 1
 
-Test adding zero and a positive integer:
+
+:: Test adding zero and a positive integer
 >>> add_integer(0, 2)
 2
 
-Test adding zero and a negative integer:
+
+:: Test adding zero and a negative integer
 >>> add_integer(0, -2)
 -2
 
-Test adding floating and non-floating values:
+
+:: Test adding floating and non-floating values
 >>> add_integer(-1.5, 2)
 1
 
-Test adding a to the second argument is optional by default equal to 98
+
+:: Test adding a to the second argument is optional by default equal to 98
 >>> add_integer(2)
 100
 
-Test adding integer b to a string:
+
+II. False Parameters (Non Numbers)
+==================================
+
+:: Test adding integer b to a string
 >>> add_integer("Add me", 2)
 Traceback (most recent call last):
+	...
 TypeError: a must be an integer
 
-Test adding integer a to a string:
+
+:: Test adding integer a to a string:
 >>> add_integer(1, "Add me")
 Traceback (most recent call last):
+	...
 TypeError: b must be an integer
+
+
+:: Test provide infinity float the function will fail
+>>> add_integer(1, float('inf'))
+Traceback (most recent call last):
+        ...
+OverflowError: cannot convert float infinity to integer
+
+
+:: Test provide float NaN numbers and this will cause function to fail
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+        ...
+ValueError: cannot convert float NaN to integer

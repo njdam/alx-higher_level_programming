@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A function to add two integers."""
+"""A file 0-add_integer.py with add_integer function to add two integers."""
 
 
 def add_integer(a, b=98):
