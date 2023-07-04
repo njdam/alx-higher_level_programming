@@ -1,0 +1,107 @@
+# A Test cases for 4-print_square.py file
+
+
+====================================================================
+How to use a function called `print_square` used for printing square
+====================================================================
+
+This module defines a function called `print_square(size)` for printing square with area of size square.
+
+
+Usage
+=====
+
+A `print_square(size)` function is a function to print a square by # with area equal to size provided times itself and no module to be imported.
+
+
+Test Cases Examples
+===================
+
+:: Importing `print_square` function from 4-print_square.py file
+>>> print_square = __import__('4-print_square').print_square
+
+I. Tasting for Valid cases in print_square function
+===================================================
+
+:: Declaration of valiable to hold size
+>>> size = 5
+>>> print_square(size)
+#####
+#####
+#####
+#####
+#####
+
+
+:: Testing a number to a function
+>>> print_square(1)
+#
+
+
+:: Testing a number to a function
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+
+:: Testing a Zero to a function
+>>> print_square(0)
+
+
+II. Testing Invalid cases in print_square function
+==================================================
+
+:: Testing a non-number without a quot to a function
+>>> print_square(h)
+Traceback (most recent call last):
+NameError: name 'h' is not defined
+
+
+:: Testing a string to a function
+>>> print_square("7")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
+:: Testing a float to a function
+>>> print_square(2.5)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
+:: Testing a character or a string with 7 char to a function
+>>> print_square('7')
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
+:: Testing a negative floating number to a function
+>>> print_square(-7.5)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
+:: Testing a negative number to a function
+>>> print_square(-3)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+
+:: Testing nothing to a function
+>>> print_square()
+Traceback (most recent call last):
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+
+:: Testing None to a function
+>>> print_square(None)
+Traceback (most recent call last):
+TypeError: size must be an integer
