@@ -1,0 +1,124 @@
+# A Test cases for 5-text_indentation.py file
+
+
+====================================================================
+How to use a function called `text_indentation` used to print a text
+====================================================================
+
+This module defines a function called `text_indentation(text)` for printing a text with 2 new lines after character '.' or '?' or ':'.
+
+
+Usage
+=====
+
+A `text_indentation(text)` function is a function to print a text with 2 new lines after character '.' or '?' or ':' and each printed line must not be started or ended by space. The text must be a string otherwise raise TypeError exception with message "text must be a string" and no module to be imported.
+
+
+Test Cases Examples
+===================
+
+:: Importing `text_indentation` function from 5-text_indentation.py file
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+I. Tasting for Valid cases in text_indentation function
+=======================================================
+
+:: Declaration of valiable to hold tex indenation
+>>> text = """Welcome to Unity Vision Technology!\nHow are you doing? Ok: I am doing fine. Bye"""
+>>> text_indentation(text)
+Welcome to Unity Vision Technology!
+How are you doing?
+<BLANKLINE>
+Ok:
+<BLANKLINE>
+I am doing fine.
+<BLANKLINE>
+Bye
+
+:: Testing a text ending with no newline
+>>> text = "Goodbye!"
+>>> text_indentation(text)
+Goodbye!
+
+
+:: Testing a text ending with newline
+>>> text = "Goodbye!\n"
+>>> text_indentation(text)
+Goodbye!
+
+
+:: Testing a text ending with dot(.) and newline
+>>> text = "Practice makes perfect.\n"
+>>> text_indentation(text)
+Practice makes perfect.
+<BLANKLINE>
+
+
+:: Testing a text ending with dot(.) only
+>>> text = "Practice makes perfect."
+>>> text_indentation(text)
+Practice makes perfect.
+<BLANKLINE>
+
+
+:: Testing indentation text started with spaces
+>>> text_indentation("""    Welcome to DAM SOW TV\n   """)
+Welcome to DAM SOW TV
+
+
+:: Testing indentation text with only spaces
+>>> text_indentation(''""    ""'')
+
+
+:: Testing indentation text with nothing
+>>> text_indentation('""""\'')
+""""'
+
+
+:: Testing word within single quot to a function
+>>> text_indentation('Good')
+Good
+
+
+:: Testing a number within single quot to a function
+>>> text_indentation('7')
+7
+
+
+II. Testing Invalid cases in text_indentation function
+======================================================
+
+:: Testing an integer to a function
+>>> text_indentation(7)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+
+:: Testing a None to a function
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+
+:: Testing a float to a function
+>>> text_indentation(-7.0)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+
+:: Testing a word without a quotation to a function
+>>> text_indentation(Good)
+Traceback (most recent call last):
+NameError: name 'Good' is not defined
+
+
+:: Testing nothing to text_indentation function
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+
+:: Testing more arguments to a function
+>>> text_indentation("Good", "Bye")
+Traceback (most recent call last):
+TypeError: text_indentation() takes 1 positional argument but 2 were given
