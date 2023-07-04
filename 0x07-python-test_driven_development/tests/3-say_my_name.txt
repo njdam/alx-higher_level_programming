@@ -1,0 +1,128 @@
+# A Test cases for 3-say_my_name.py file
+
+
+==================================================================
+How to use a function called `say_my_name` used for saying my name
+==================================================================
+
+This module defines a function called `say_my_name(first_name, last_name="")` saying my name.
+
+
+Usage
+=====
+
+A `say_my_name(first_name, last_name="")` function is a function to say my first name and my last name and both must be a string otherwise, raise TypeError exception with error message "first_name must be a string" or "last_name must be a string". No module allowed to be imported.
+
+
+Test Cases Examples
+===================
+
+:: Importing `say_my_name` function from 3-say_my_name.py file
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+I. Tasting for Valid cases in say_my_name function
+==================================================
+
+:: Declaration of valiables to hold names
+>>> first_name = "John"
+>>> last_name = "Peter"
+
+
+:: Testing for name from declared variables
+>>> say_my_name(first_name, last_name)
+My name is John Peter
+
+
+:: Testing for last_name replaced by first_name
+>>> say_my_name(last_name, first_name)
+My name is Peter John
+
+
+:: Testing for first_name to occupy both parameters
+>>> say_my_name(first_name, first_name)
+My name is John John
+
+
+:: Testing for name within calling function
+>>> say_my_name("Will", "Smith")
+My name is Will Smith
+
+
+:: Testing for last_name if is a number
+>>> say_my_name("Cristiano", "Ronaldo")
+My name is Cristiano Ronaldo
+
+
+:: Testing for names with many words
+>>> say_my_name("Cristiano Ronaldo", "Dos Santos Aveiro")
+My name is Cristiano Ronaldo Dos Santos Aveiro
+
+
+:: Testing say_my_name function for one argument
+>>> say_my_name("Ronaldo")
+My name is Ronaldo 
+
+
+:: Testing for first_name if is a character
+>>> say_my_name('C', "R7")
+My name is C R7
+
+
+:: Testing for last_name if is a character
+>>> say_my_name("CR", '7')
+My name is CR 7
+
+
+:: Testing for last_name if is a number
+>>> say_my_name("Ronaldo", 7)
+My name is Ronaldo 7
+
+
+:: Testing Name to a function within a single cought
+>>> say_my_name('Cristiano Ronaldo')
+My name is Cristiano Ronaldo 
+
+
+II. Testing Invalid cases in say_my_name function
+=================================================
+
+:: Testing for first_name if is a number
+>>> say_my_name(7, "Ronaldo")
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+
+:: Testing for first_name if is a character
+>>> say_my_name(Ronaldo, 7)
+Traceback (most recent call last):
+	...
+NameError: name 'Ronaldo' is not defined
+
+
+:: Testing for first_name if is a character
+>>> say_my_name(ok)
+Traceback (most recent call last):
+	...
+NameError: name 'ok' is not defined
+
+
+:: Testing Name to a function without cought
+>>> say_my_name(Cristiano Ronaldo)
+Traceback (most recent call last):
+	...
+SyntaxError: invalid syntax
+
+
+:: Testing for many arguments to say_my_name function
+>>> say_my_name("Cristiano", "Ronaldo", "Dos Santos Aveiro")
+Traceback (most recent call last):
+	...
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+
+:: Testing for nothing to say_my_name function
+>>> say_my_name()
+Traceback (most recent call last):
+	...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
