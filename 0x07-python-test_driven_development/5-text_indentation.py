@@ -31,7 +31,7 @@ def text_indentation(text):
             print("{}\n".format(line))
             line = ""  # After printing line start with empty new line
 
-    if line.strip():  # if last line is not empty after removing tr..sapces
+    if line.strip():  # if last_line is not empty after removing tr..sapces
         if line.startswith(" "):  # remove spaces where last line started
             line = line[1:]
         print("{}".format(line.strip()), end="")
