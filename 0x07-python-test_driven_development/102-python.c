@@ -8,12 +8,12 @@
  */
 void print_python_string(PyObject *p)
 {
-	Py_ssize lens;
+	Py_ssize_t lens;
 
 	fflush(stdout);
-
 	printf("[.] string object info\n");
-	if (strcmp(p->ob_type->tp_name, "str") != 0)
+
+	if (strcmp((p->ob_type)->tp_name, "str") != 0)
 	{
 		printf("  [ERROR] Invalid String Object\n");
 		return;
