@@ -98,7 +98,6 @@ class Rectangle:
         """A function to return a new Rectangle with equal width and height
 
         Args:
-            cls (class): is for regular class method
             size (int): is size of square as new size of rectangle.
         """
         return (cls(size, size))
