@@ -13,8 +13,8 @@ class Rectangle:
             height (int): is a height of rectangle must be an integer.
         """
 
-        self.height = height
-        self.width = width
+        self.height = height  # height became the first for call __dict__
+        self.width = width  # width became the second for call __dict__
 
     @property
     def width(self):
