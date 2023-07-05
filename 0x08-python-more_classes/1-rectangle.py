@@ -13,13 +13,13 @@ class Rectangle:
             height (int): is a height of rectangle must be an integer.
         """
 
-        self.height = height
         self.width = width
+        self.height = height
 
     @property
     def width(self):
         """A function to retrieve a value of width."""
-        self.__width = width
+        return (self.__width)
 
     @width.setter
     def width(self, value):
@@ -34,7 +34,7 @@ class Rectangle:
     @property
     def height(self):
         """A function to retrieve a value of height."""
-        self.__height = height
+        return (self.__height)
 
     @height.setter
     def height(self, value):
