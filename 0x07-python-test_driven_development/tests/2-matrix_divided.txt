@@ -19,7 +19,7 @@ Test Cases Examples
 ===================
 
 :: Importing matrix_divided function from 2-matrix_divided.py file
->>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided = __import__('22-matrix_divided').matrix_divided
 
 I. Tasting for Valid cases in matrix and div
 ============================================
