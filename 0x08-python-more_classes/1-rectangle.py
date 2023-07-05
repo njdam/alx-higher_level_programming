@@ -23,12 +23,6 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """A function to set width to a value.
-
-        Arg:
-            value (int): is a width of rectangle must be an integer.
-        """
-
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
 
@@ -44,12 +38,6 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """A function to set height to a value.
-
-        Arg:
-            value (int): is a height of rectangle must be an integer.
-        """
-
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
 
