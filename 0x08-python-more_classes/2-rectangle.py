@@ -56,5 +56,7 @@ class Rectangle:
         """A function to return parameter of rectangle."""
         h = self.__height
         w = self.__width
+        if self.__width == 0 or self.__height == 0:
+            return (0)
 
         return (2 * (h + w))
