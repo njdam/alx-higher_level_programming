@@ -43,3 +43,80 @@ Apart from `unittest`, there are other testing frameworks in Python like `pytest
 `Unittest` test case runners allow more options when running tests, like reporting test statistics such as tests that passed and failed.
 
 Unittest uses methods created in classes to manage tests. It has support for automation, setup, and shutdown code when testing. Unittest has several rich, in-built features that are unavailable in doctest, including generators and group fixture managers like setUp and tearDown.
+
+## ADVANCED TASK
+
+#### Multiplication of 2 Matrices
+
+Let's walk through the steps of mathematical matrix multiplication using an example. Consider the following two matrices:
+
+`Matrix A:`
+```
+[
+  [2, 3],
+  [4, 5]
+]
+```
+
+`Matrix B:`
+```
+[
+  [1, 2],
+  [3, 4]
+]
+```
+
+To multiply these matrices, we follow these steps:
+
+<span style="color: blue; font-family: Times New Roman">Step 1: Determine the dimensions</span>
+
+Matrix A has dimensions 2x2 (2 rows and 2 columns).
+Matrix B has dimensions 2x2 (2 rows and 2 columns).
+
+
+<span style="color: blue; font-family: Times New Roman">Step 2: Check compatibility</span>
+
+The number of columns in Matrix A (2) must be equal to the number of rows in Matrix B (2) for multiplication to be possible. In this case, they are equal, so the matrices are compatible for multiplication.
+
+<span style="color: blue; font-family: Times New Roman">Step 3: Multiply the elements and sum the products</span>
+
+To calculate each element of the resulting matrix, we multiply corresponding elements from each row of Matrix A with each column of Matrix B and sum the products.
+
+<span style="color: green;">For the element in the first row and first column of the resulting matrix:</span>
+
+Multiply the first row of Matrix A: [2, 3]
+Multiply the first column of Matrix B: [1, 3]
+Multiply corresponding elements and sum the products: (21) + (33) = 11
+
+
+<span style="color: green;">For the element in the first row and second column of the resulting matrix:</span>
+
+Multiply the first row of Matrix A: [2, 3]
+Multiply the second column of Matrix B: [2, 4]
+Multiply corresponding elements and sum the products: (22) + (34) = 16
+
+
+<span style="color: green;">For the element in the second row and first column of the resulting matrix:</span>
+
+Multiply the second row of Matrix A: [4, 5]
+Multiply the first column of Matrix B: [1, 3]
+Multiply corresponding elements and sum the products: (41) + (53) = 19
+
+
+<span style="color: green;">For the element in the second row and second column of the resulting matrix:</span>
+
+Multiply the second row of Matrix A: [4, 5]
+Multiply the second column of Matrix B: [2, 4]
+Multiply corresponding elements and sum the products: (42) + (54) = 28
+
+
+<span style="color: green;">Putting it all together, the resulting matrix will be:</span>
+Resulting Matrix:
+```
+[
+  [11, 16],
+  [19, 28]
+]
+```
+
+[Reference](https://chat.openai.com/)
