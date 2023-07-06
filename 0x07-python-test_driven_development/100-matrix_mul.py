@@ -51,10 +51,10 @@ def matrix_mul(m_a, m_b):
 
     # If matrix contain unequally rows
     if not all(len(row) == len(m_a[0]) for row in m_a):
-        raise TypeError("each row of m_a must should be of the same size")
+        raise TypeError("each row of m_a must be of the same size")
 
     if not all(len(row) == len(m_b[0]) for row in m_b):
-        raise TypeError("each row of m_b must should be of the same size")
+        raise TypeError("each row of m_b must be of the same size")
 
     # if matrix can not be multiplied
     if len(m_a[0]) != len(m_b):
