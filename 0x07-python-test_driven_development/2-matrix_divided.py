@@ -9,16 +9,16 @@ def matrix_divided(matrix, div):
     Results is all elements of matrix divided by div number
 
     Paramenters:
-        matrix (matrix): must be a list of a lists of numbers
+        matrix (matrix): is a matrix must be a list of a lists of numbers
         div (int): is second parameter and must be an integer
     """
 
-    if (matrix == [] or not isinstance(matrix, list) or
+    if (not isinstance(matrix, list) or matrix == [] or
             not all(isinstance(row, list) for row in matrix) or
             not all((isinstance(num, int) or isinstance(num, float))
                     for num in [x for row in matrix for x in row])):
-        raise TypeError("matrix must be a matrix (list of lists)"
-                        " of integers/floats")
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
 
     if not all(len(row) == len(matrix[0]) for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
