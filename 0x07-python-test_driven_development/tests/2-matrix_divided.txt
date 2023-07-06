@@ -19,7 +19,7 @@ Test Cases Examples
 ===================
 
 :: Importing matrix_divided function from 2-matrix_divided.py file
->>> matrix_divided = __import__('22-matrix_divided').matrix_divided
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 I. Tasting for Valid cases in matrix and div
 ============================================
@@ -90,6 +90,28 @@ TypeError: div must be a number
 
 III. Testing Invalid cases in matrix
 ====================================
+
+:: Test for None matrix to a function
+>>> matrix = None
+>>> matrix_divided(matrix, 7)
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+:: Test for empty matrix list to a function
+>>> matrix = []
+>>> matrix_divided(matrix, 7)
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+:: Test for empty matrix list of lists to a function
+>>> matrix = [[]]
+>>> matrix_divided(matrix, 7)
+[[]]
+
 
 :: Test for matrix without a list of lists
 >>> matrix = [1, 2, 3]
