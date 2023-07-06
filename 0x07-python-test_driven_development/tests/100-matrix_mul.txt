@@ -49,6 +49,22 @@ I. Tasting Valid cases
 >>> matrix_mul(m_a, m_b)
 [[-9.799999999999999, -8.5], [43.599999999999994, 68.0]]
 
+::
+>>> m_a = [[5, 6, 10], [7, 8]]
+>>> m_b = [[5, 6], [7, 8]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+	...
+TypeError: each row of m_a must should be of the same size
+
+::
+>>> m_a = [[5, 6], [7, 8]]
+>>> m_b = [[5, 6, 1], [7, 8]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+	...
+TypeError: each row of m_b must should be of the same size
+
 
 II. Testing Invalid cases
 =========================
