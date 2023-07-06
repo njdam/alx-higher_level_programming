@@ -75,10 +75,13 @@ class Rectangle:
         """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
+
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
+
         if rect_1.area() >= rect_2.area():
             return (rect_1)
+
         return (rect_2)
 
     @classmethod
@@ -96,9 +99,11 @@ class Rectangle:
             return ("")
 
         rectangle = []
-        for i in range(self.__height):
-            [rectangle.append(str(self.print_symbol)) for j in range(self.__width)]
-            if i != self.__height - 1:
+        for y in range(self.__height):
+            for x in range(self.__width):
+                rectangle.append(str(self.print_symbol))
+
+            if y != self.__height - 1:
                 rectangle.append("\n")
 
         return ("".join(rectangle))
@@ -107,6 +112,7 @@ class Rectangle:
         """Function to return string representation to create rectangle."""
         recr = "Rectangle(" + str(self.__width)
         recr += ", " + str(self.__height) + ")"
+
         return (recr)
 
     def __del__(self):
