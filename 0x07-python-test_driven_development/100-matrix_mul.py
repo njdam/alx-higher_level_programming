@@ -1,24 +1,7 @@
 #!/usr/bin/python3
-"""A file defines a function of 2 matrices multiplication."""
 
 
 def matrix_mul(m_a, m_b):
-    """A function to multiply two matrices
-
-    Args:
-        m_a (matrix): is first matrix it's elements must be int/float.
-        m_b (matrix): The second matrix it's elements must be int/float.
-
-    Raise:
-        TypeError: If either m_a or m_b is not list of lists of int/float
-        TypeError: If is empty for either m_a or m_b
-        TypeError: If has different size of rows for either m_a or m_b
-        ValueError: If m_a and m_b can not be multiplied
-
-    Return:
-        new_matrix with result of multiplied matrices m_a and m_b.
-    """
-
     # If matrix is empty
     if m_a == [] or m_a == [[]]:
         raise ValueError("m_a can't be empty")
