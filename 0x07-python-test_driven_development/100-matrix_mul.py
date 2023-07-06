@@ -60,21 +60,12 @@ def matrix_mul(m_a, m_b):
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    buffer_b = []  # Inverting buffer
-    for yb in range(len(m_b[0])):
-        new_row = []
-        for xb in range(len(m_b)):
-            new_row.append(m_b[xb][yb])
-        buffer_b.append(new_row)
+    res_matrix = []
+    for y in range(len(m_a)):
+        res_row = []
+        for x in range(len(m_b[0])):
+            res_cell = sum(m_a[y][z] * m_b[z][x] for z in range(len(m_b)))
+            res_row.append(res_cell)
+        res_matrix.append(res_row)
 
-    new_matrix = []
-    for row in m_a:
-        new_row = []
-        for column in buffer_b:
-            result = 0
-            for x in range(len(buffer_b[0])):
-                result += row[x] * column[x]
-            new_row.append(result)
-        new_matrix.append(new_row)
-
-    return new_matrix
+    return (res_matrix)  # Return Resulting matrix contains m_a * m_b
