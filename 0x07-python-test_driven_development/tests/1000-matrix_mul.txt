@@ -1,0 +1,156 @@
+# A Test cases for 100-matrix_mul.py file
+
+
+===============================================================
+How to use a function called `matrix_mul` used for metrices mul
+===============================================================
+
+This module defines a function called `matrix_mul(m_a, m_b)` to multiply two metrices.
+
+
+Usage
+=====
+
+A `matrix_mul(m_a, m_b)` function is a function that multiplies 2 metrices which are `m_a` and `m_b` and TypeError, ValueError exceptions will be raised if no match to requirements for multiplying 2 metrices.
+
+Test Cases Examples
+===================
+
+:: Importing `matrix_mul` function from 100-matrix_mul.py file
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+I. Tasting Valid cases
+======================
+
+:: Test for 2 identical matrices to a function
+>>> m_a = [[1, 2], [5, 10]]
+>>> m_b = m_a
+>>> matrix_mul(m_a, m_b)
+[[11, 22], [55, 110]]
+
+
+:: Test of 2 matrices of diffent number of lists
+>>> m_a = [[1, 2]]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+[[7, 10]]
+
+
+:: Test of 2 matrices with float elements
+>>> m_a = [[1.6, 2.5, -3.4], [4.30, 5.2, 6.1]]
+>>> m_b = [[1.6, 2.5], [3.4, 4.33], [-5.2, 6.11]]
+>>> matrix_mul(m_a, m_b)
+[[28.740000000000002, -5.949000000000002], [-7.16, 70.537]]
+
+
+:: Test of 2 matrices with both integer and float elements
+>>> m_a = [[1.5, 2, -3], [4.5, 5, 6]]
+>>> m_b = [[-1, 2], [3.5, 4], [5.1, 6.5]]
+>>> matrix_mul(m_a, m_b)
+[[-9.799999999999999, -8.5], [43.599999999999994, 68.0]]
+
+
+II. Testing Invalid cases
+=========================
+
+:: Test nothing to a function
+>>> matrix_mul()
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+
+:: Test for error if m_a and m_b can't be multiplied
+>>> m_a = [[1, 2, 3]]
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+
+>>> matrix_mul([[1, 2]], [[3, 4]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+
+>>> matrix_mul([[1, 2], [4, 6]], [[3, 4], [1, 5], [3, 7]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+
+
+:: Testing empty m_a to a function
+>>> m_a = []
+>>> m_b = [[1, 2], [3, 4]]
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+
+:: Testing empty m_b to a function
+>>> m_a = [[1, 2, 3]]
+>>> m_b = []
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+
+
+:: Testing empty lists to a function
+>>> matrix_mul([[]], [[]])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+>>> matrix_mul([[]], [])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+
+:: Testing a string to a function
+>>> matrix_mul("hello", [[1, 2]])
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+>>> matrix_mul([[1, 2]], "hello")
+Traceback (most recent call last):
+TypeError: m_b must be a list
+
+>>> matrix_mul("Hello", "World")
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+
+:: Testing None to a function
+>>> matrix_mul(None, None)
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+
+:: Testing non-matrix or list to a function
+>>> matrix_mul([1, 2], [[1, 2]])
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+
+>>> matrix_mul([[1, 2]], [1, 2])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+
+
+:: Testing neither float or integer in lists to a function
+>>> matrix_mul([[1, '2']], [[1, 2], [4, 7]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+
+>>> matrix_mul([[1, 2]], [[1, 2], ['ok', '7']])
+Traceback (most recent call last):
+TypeError: m_b should contain only integers or floats
+
+>>> print(matrix_mul([[1, 2]], [[3, {0:4}]]))
+Traceback (most recent call last):
+TypeError: m_b should contain only integers or floats
+
+
+:: Testing length of rows in matrix to a function
+>>> matrix_mul([[1, 2], [1, 2, 3]], [[1, 2], [4, 7]])
+Traceback (most recent call last):
+TypeError: each row of m_a must should be of the same size
+
+>>> matrix_mul([[1, 2], [1, 2]], [[1, 2], [3, 4, 5]])
+Traceback (most recent call last):
+	...
+TypeError: each row of m_b must should be of the same size
