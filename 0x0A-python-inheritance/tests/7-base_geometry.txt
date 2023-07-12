@@ -32,23 +32,23 @@ ______________________________________________________
 
 :: Trying name as name with value which is a string
 >>> try:
-... 	bg.integer_validator("name", "John")
+...	bg.integer_validator("name", "John")
 ... except Exception as e:
-... 	print("[{}] {}".format(e.__class__.__name__, e))
+...	print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
 
 :: Trying age as name with value 0
 >>> try:
-...     bg.integer_validator("age", 0)
+...	bg.integer_validator("age", 0)
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
+...	print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] age must be greater than 0
 
 :: Trying distance as name with value 0
 >>> try:
-...     bg.integer_validator("distance", 0)
+...	bg.integer_validator("distance", 0)
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
+...	print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
 
 ______________________________________________________
@@ -57,7 +57,6 @@ ______________________________________________________
 
 >>> bg.area()
 Traceback (most recent call last):
-	...
 Exception: area() is not implemented
 
 ______________________________________________________
@@ -66,9 +65,7 @@ ______________________________________________________
 
 >>> bg.integer_validator("name", "7")
 Traceback (most recent call last):
-	...
 TypeError: name must be an integer
-
 
 ______________________________________________________
 
@@ -76,14 +73,12 @@ ______________________________________________________
 
 >>> bg.integer_validator("name", False)
 Traceback (most recent call last):
-	...
 TypeError: name must be an integer
 
 ::
 
 >>> bg.integer_validator("name", True)
 Traceback (most recent call last):
-	...
 TypeError: name must be an integer
 
 ______________________________________________________
@@ -92,7 +87,6 @@ ______________________________________________________
 
 >>> bg.integer_validator("name", -1)
 Traceback (most recent call last):
-	...
 ValueError: name must be greater than 0
 
 ______________________________________________________
@@ -101,7 +95,6 @@ ______________________________________________________
 
 >>> bg.integer_validator("name", 0)
 Traceback (most recent call last):
-	...
 ValueError: name must be greater than 0
 
 ______________________________________________________
@@ -116,7 +109,6 @@ ______________________________________________________
 
 >>> bg.integer_validator(7)
 Traceback (most recent call last):
-	...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 ______________________________________________________
@@ -125,7 +117,6 @@ ______________________________________________________
 
 >>> bg.integer_validator("name")
 Traceback (most recent call last):
-	...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 ______________________________________________________
@@ -134,7 +125,6 @@ ______________________________________________________
 
 >>> bg.integer_validator()
 Traceback (most recent call last):
-	...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 ______________________________________________________
@@ -143,7 +133,6 @@ ______________________________________________________
 
 >>> bg.integer_validator("name", 1, 2)
 Traceback (most recent call last):
-	...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
 ______________________________________________________
@@ -152,7 +141,6 @@ ______________________________________________________
 
 >>> bg.area(5)
 Traceback (most recent call last):
-	...
 TypeError: area() takes 1 positional argument but 2 were given
 
 ______________________________________________________
@@ -161,7 +149,6 @@ ______________________________________________________
 
 >>> bg.area(5, 5)
 Traceback (most recent call last):
-	...
 TypeError: area() takes 1 positional argument but 3 were given
 
 ______________________________________________________
@@ -170,7 +157,6 @@ ______________________________________________________
 
 >>> bg.integer_validator("point", (7, 1))
 Traceback (most recent call last):
-	...
 TypeError: point must be an integer
 
 ______________________________________________________
@@ -179,14 +165,20 @@ ______________________________________________________
 
 >>> bg.integer_validator("age", [1, 2])
 Traceback (most recent call last):
-	...
 TypeError: age must be an integer
 
 ______________________________________________________
 
-:: Test Case 15: Testing a dictionary with integers to function
+:: Test Case 16: Testing a dictionary with integers to function
 
 >>> bg.integer_validator("Size", {5, 7})
 Traceback (most recent call last):
-	...
+TypeError: Size must be an integer
+
+______________________________________________________
+
+:: Test Case 17: Testing a None to function
+
+>>> bg.integer_validator("Size", None)
+Traceback (most recent call last):
 TypeError: Size must be an integer
