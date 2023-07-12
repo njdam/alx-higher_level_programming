@@ -1,0 +1,192 @@
+# Test cases for testing 7-base_geometry.py file.
+
+
+=================================================================
+How to use the class BaseGeometry with integer_validator function
+=================================================================
+
+This module defines a class BaseGeometry with function called `integer_validator` to validate if a given value is an integer.
+
+Usage
+=====
+
+The class BaseGeometry with a function called `integer_validator` to validate if a given value is an integer otherwise raise TypeError and ValueError Exceptions.
+
+
+Test Cases Examples
+===================
+
+:: Test Case 0: importing class from 7-base_geometry.py file
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+______________________________________________________
+
+:: Test Case 1: Testing provided Case in example
+
+>>> bg = BaseGeometry()
+
+:: Trying a valid name and value to return nothing
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("my_int", 12)
+
+:: Trying name as name with value which is a string
+>>> try:
+... 	bg.integer_validator("name", "John")
+... except Exception as e:
+... 	print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+
+:: Trying age as name with value 0
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+:: Trying distance as name with value 0
+>>> try:
+...     bg.integer_validator("distance", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+
+______________________________________________________
+
+:: Test Case 2: Testing area in a class BaseGeometry
+
+>>> bg.area()
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
+
+______________________________________________________
+
+:: Test Case 3: Testing to pass a non-integer argument
+
+>>> bg.integer_validator("name", "7")
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+
+______________________________________________________
+
+:: Test Case 4: Testing to pass a boolean (True or False) value
+
+>>> bg.integer_validator("name", False)
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+::
+
+>>> bg.integer_validator("name", True)
+Traceback (most recent call last):
+	...
+TypeError: name must be an integer
+
+______________________________________________________
+
+:: Test Case 5: Testing to pass a negative value
+
+>>> bg.integer_validator("name", -1)
+Traceback (most recent call last):
+	...
+ValueError: name must be greater than 0
+
+______________________________________________________
+
+:: Test Case 6: Testing to pass a zero value
+
+>>> bg.integer_validator("name", 0)
+Traceback (most recent call last):
+	...
+ValueError: name must be greater than 0
+
+______________________________________________________
+
+:: Test Case 7: Testing to pass a positive value
+
+>>> bg.integer_validator("name", 5)
+
+______________________________________________________
+
+:: Test Case 8: Testing by passing only a value
+
+>>> bg.integer_validator(7)
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+______________________________________________________
+
+:: Test Case 9: Testing by passing only a name
+
+>>> bg.integer_validator("name")
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+______________________________________________________
+
+:: Test Case 10: Testing by passing nothing to a function
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+______________________________________________________
+
+:: Test Case 11: Testing more than 2 args to a function
+
+>>> bg.integer_validator("name", 1, 2)
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+______________________________________________________
+
+:: Test Case 12: Testing more than 1 args to area function
+
+>>> bg.area(5)
+Traceback (most recent call last):
+	...
+TypeError: area() takes 1 positional argument but 2 were given
+
+______________________________________________________
+
+:: Test Case 13: Testing more than 2 args to area function
+
+>>> bg.area(5, 5)
+Traceback (most recent call last):
+	...
+TypeError: area() takes 1 positional argument but 3 were given
+
+______________________________________________________
+
+:: Test Case 14: Testing a tuple of integer to function
+
+>>> bg.integer_validator("point", (7, 1))
+Traceback (most recent call last):
+	...
+TypeError: point must be an integer
+
+______________________________________________________
+
+:: Test Case 15: Testing a list of integer to function
+
+>>> bg.integer_validator("age", [1, 2])
+Traceback (most recent call last):
+	...
+TypeError: age must be an integer
+
+______________________________________________________
+
+:: Test Case 15: Testing a dictionary with integers to function
+
+>>> bg.integer_validator("Size", {5, 7})
+Traceback (most recent call last):
+	...
+TypeError: Size must be an integer
