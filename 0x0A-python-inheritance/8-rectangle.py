@@ -15,8 +15,8 @@ class Rectangle(BaseGeometry):
             width (int): is a width of a rectangle must be an integer.
             height (int): is a height a rectangle must be an integer.
         """
-        self.integer_validator("Width", width)
+        self.integer_validator("width", width)
         self.__width = width
 
-        self.integer_validator("Height", height)
+        self.integer_validator("height", height)
         self.__height = height
