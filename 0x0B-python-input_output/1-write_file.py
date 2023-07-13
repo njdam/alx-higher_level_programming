@@ -10,10 +10,6 @@ def write_file(filename="", text=""):
         text (str): is a text to be written in file.
     """
 
-    try:
-        with open(filename, mode="w", encoding="utf-8") as Myfile:
-            lens = Myfile.write(text)
-            return (lens)
-
-    except IOError:
-        return (0)
+    with open(filename, mode="w", encoding="utf-8") as Myfile:
+        lens = Myfile.write(text)
+        return (lens)
