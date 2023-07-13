@@ -37,6 +37,6 @@ class Student:
         Args:
             json (dict): will be always a dictionary.
         """
-        
+
         for s, item in json.items():
             setattr(self, s, item)
