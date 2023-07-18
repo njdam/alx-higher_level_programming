@@ -84,6 +84,19 @@ class TestingClassRectangle(unittest.TestCase):
             print(r3)
             self.assertEqual(output.getvalue(), expected_r3)
 
+    def test_update(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        r1.update(89, 2)
+        r1.update(89, 2, 3)
+        r1.update(89, 2, 3, 4)
+        r1.update(89, 2, 3, 4, 5)
+        expected_r1 = str(f"[Rectangle] ({r1.id}) {r1.x}/{r1.y} - "
+                f"{r1.width}/{r1.height}\n")
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1)
+            self.assertEqual(output.getvalue(), expected_r1)
+
 
 if __name__ == '__main__':
     unittest.main()
