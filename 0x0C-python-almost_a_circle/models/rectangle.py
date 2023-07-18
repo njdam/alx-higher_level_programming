@@ -93,10 +93,16 @@ class Rectangle(Base):
 
     def display(self):
         """A function to print area of rectangle by # display."""
-        for y in range(self.__height):
-            for x in range(self.__width):
+        for y in range(self.__y):
+                print("")  # to print new line before printing rectangle
+
+        for h in range(self.__height):
+            for x in range(self.__x):
+                print(" ", end="")  # to print spaces before hashes
+            for w in range(self.__width):
                 print("#", end="")
-            print("")
+
+            print("")  # to print new line after printing width
 
     def __str__(self):
         """A function for returning string representation of rectangle."""

@@ -58,6 +58,18 @@ class TestingClassRectangle(unittest.TestCase):
             r2.display()
             self.assertEqual(output.getvalue(), expected_output)
 
+        r3 = Rectangle(2, 3, 2, 2)
+        expected_r3 = "\n\n  ##\n  ##\n  ##\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            r3.display()
+            self.assertEqual(output.getvalue(), expected_r3)
+
+        r4 = Rectangle(3, 2, 1, 0)
+        expected_r4 = " ###\n ###\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            r4.display()
+            self.assertEqual(output.getvalue(), expected_r4)
+
     def test_str_repr(self):
         r1 = Rectangle(4, 6, 2, 1, 12)
         expected_r1 = "[Rectangle] (12) 2/1 - 4/6\n"
