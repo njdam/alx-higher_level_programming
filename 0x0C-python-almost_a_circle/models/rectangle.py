@@ -113,15 +113,32 @@ class Rectangle(Base):
 
         return (string)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """A function to update rectangle args."""
-        if len(args) >= 1:
-            self.id = args[0]
-        if len(args) >= 2:
-            self.__width = args[1]
-        if len(args) >= 3:
-            self.__height = args[2]
-        if len(args) >= 4:
-            self.__x = args[3]
-        if len(args) >= 5:
-            self.__y = args[4]
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.__width = args[1]
+            if len(args) >= 3:
+                self.__height = args[2]
+            if len(args) >= 4:
+                self.__x = args[3]
+            if len(args) >= 5:
+                self.__y = args[4]
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+            """ Or this below
+            for key in kwargs:
+                if key == "id":
+                    self.id = kwargs[key]
+                if key == "width":
+                    self.__width = kwargs[key]
+                if key == "height":
+                    self.__height = kwargs[key]
+                if key == "x":
+                    self.__x = kwargs[key]
+                if key == "y":
+                    self.__y = kwargs[key]
+            """
