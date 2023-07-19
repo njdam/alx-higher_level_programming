@@ -36,6 +36,10 @@ class TestingClassSquare(unittest.TestCase):
             Square(10, 2, {})
             Square(-10, 2)
 
+    def test_set_size(self):
+        s1 = Square(5)
+        self.assertEqual(s1.size, 5)
+
     def test_area_rectangle(self):
         r1 = Square(3)
         r2 = Square(2)

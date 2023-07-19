@@ -16,7 +16,17 @@ class Square(Rectangle):
             y (int): is a cordinate at y-axis where square start
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
+
+    @property
+    def size(self):
+        """Getting value of a size."""
+        return (self.width)
+
+    @size.setter
+    def size(self, value):
+        """A function to set a value to size."""
+        self.width = value
+        self.height = value
 
     def __str__(self):
         """A function for returning string representation of rectangle."""
