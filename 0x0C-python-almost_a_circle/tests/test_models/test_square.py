@@ -110,8 +110,8 @@ class TestingClassSquare(unittest.TestCase):
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
 
-        r1.update(y=1, width=2, x=3, id=89)
-        r1.update(x=1, height=2, y=3, width=4)
+        r1.update(y=1, x=3, id=89)
+        r1.update(x=1, size=4, y=3, id=4)
         expected_r1 = str(f"[Square] ({r1.id}) {r1.x}/{r1.y} - ")
         expected_r1 += str(f"{r1.size}\n")
         with patch("sys.stdout", new=StringIO()) as output:
