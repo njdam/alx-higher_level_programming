@@ -95,7 +95,7 @@ class Rectangle(Base):
     def display(self):
         """A function to print area of rectangle by # display."""
         for y in range(self.__y):
-                print("")  # to print new line before printing rectangle
+            print("")  # to print new line before printing rectangle
 
         for h in range(self.__height):
             for x in range(self.__x):
@@ -104,14 +104,6 @@ class Rectangle(Base):
                 print("#", end="")
 
             print("")  # to print new line after printing width
-
-    def __str__(self):
-        """A function for returning string representation of rectangle."""
-        string = "[" + str(getattr(Rectangle, '__name__')) + "]"
-        string += " " + str(f"({self.id}) {self.__x}/{self.__y}")
-        string += " " + str(f"- {self.__width}/{self.__height}")
-
-        return (string)
 
     def update(self, *args, **kwargs):
         """A function to update rectangle args."""
@@ -142,3 +134,11 @@ class Rectangle(Base):
                 if key == "y":
                     self.__y = kwargs[key]
             """
+
+    def __str__(self):
+        """A function for returning string representation of rectangle."""
+        string = "[" + str(getattr(Rectangle, '__name__')) + "]"
+        string += " " + str(f"({self.id}) {self.__x}/{self.__y}")
+        string += " " + str(f"- {self.__width}/{self.__height}")
+
+        return (string)

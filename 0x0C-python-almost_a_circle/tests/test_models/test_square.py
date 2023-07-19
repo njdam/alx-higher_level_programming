@@ -6,111 +6,110 @@ from unittest.mock import patch
 
 from io import StringIO
 
-from models.base import Base
+from models.square import Square
 from models.rectangle import Rectangle
 
 
-class TestingClassRectangle(unittest.TestCase):
-    """A test cases for testing a rectangle inherited from Base class."""
+class TestingClassSquare(unittest.TestCase):
+    """A test cases for testing a square inherited from Rectangle class."""
 
-    def test_rectangle_if_is_base(self):
-        self.assertIsInstance(Rectangle(5, 7), Base)
+    def test_square_if_is_rectangle(self):
+        self.assertIsInstance(Square(5), Rectangle)
 
     def test_width_height_only(self):
-        r1 = Rectangle(10, 2)
-        r2 = Rectangle(2, 10)
+        r1 = Square(10)
+        r2 = Square(2)
         self.assertEqual(r2.id, r1.id + 1)
 
     def test_with_all_args(self):
-        r3 = Rectangle(10, 2, 0, 0, 12)
+        r3 = Square(10, 0, 0, 12)
         self.assertEqual(r3.id, 12)
 
     def test__type_error(self):
         with self.assertRaises(TypeError):
-            Rectangle(10, "2")
-            Rectangle("6", 7)
+            Square("10")
+            Square(2, 0, "0")
 
     def test_neg_value(self):
         with self.assertRaises(ValueError):
-            Rectangle(10, 2, 3, -1)
-            Rectangle(10, 2, {}, 0)
-            Rectangle(10, -2)
-            Rectangle(-10, 2)
+            Square(10, -2, 3)
+            Square(10, 2, {})
+            Square(-10, 2)
 
     def test_area_rectangle(self):
-        r1 = Rectangle(3, 2)
-        r2 = Rectangle(2, 10)
-        r3 = Rectangle(8, 7, 0, 0, 12)
-        self.assertEqual(r1.area(), 6)
-        self.assertEqual(r2.area(), 20)
-        self.assertEqual(r3.area(), 56)
+        r1 = Square(3)
+        r2 = Square(2)
+        r3 = Square(8, 0, 0, 12)
+        self.assertEqual(r1.area(), 9)
+        self.assertEqual(r2.area(), 4)
+        self.assertEqual(r3.area(), 64)
 
     def test_display_rectangle(self):
-        r1 = Rectangle(4, 6)
-        expected_output = "####\n####\n####\n####\n####\n####\n"
+        r1 = Square(4)
+        expected_output = "####\n####\n####\n####\n"
         with patch("sys.stdout", new=StringIO()) as output:
             r1.display()
             self.assertEqual(output.getvalue(), expected_output)
 
-        r2 = Rectangle(2, 2)
+        r2 = Square(2)
         expected_output = "##\n##\n"
         with patch("sys.stdout", new=StringIO()) as output:
             r2.display()
             self.assertEqual(output.getvalue(), expected_output)
 
-        r3 = Rectangle(2, 3, 2, 2)
-        expected_r3 = "\n\n  ##\n  ##\n  ##\n"
+        r3 = Square(3, 2, 2)
+        expected_r3 = "\n\n  ###\n  ###\n  ###\n"
         with patch("sys.stdout", new=StringIO()) as output:
             r3.display()
             self.assertEqual(output.getvalue(), expected_r3)
 
-        r4 = Rectangle(3, 2, 1, 0)
-        expected_r4 = " ###\n ###\n"
+        r4 = Square(2, 1, 0)
+        expected_r4 = " ##\n ##\n"
         with patch("sys.stdout", new=StringIO()) as output:
             r4.display()
             self.assertEqual(output.getvalue(), expected_r4)
 
     def test_str_repr(self):
-        r1 = Rectangle(4, 6, 2, 1, 12)
-        expected_r1 = "[Rectangle] (12) 2/1 - 4/6\n"
+        r1 = Square(4, 2, 1, 12)
+        expected_r1 = "[Square] (12) 2/1 - 4\n"
         with patch("sys.stdout", new=StringIO()) as output:
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
 
-        r2 = Rectangle(5, 5, 1, 0)
-        r3 = Rectangle(5, 5, 1)
-        expected_r3 = f"[Rectangle] ({r2.id + 1}) 1/0 - 5/5\n"
+        r2 = Square(5, 1, 0)
+        r3 = Square(5, 1)
+        expected_r3 = f"[Square] ({r2.id + 1}) 1/0 - 5\n"
         with patch("sys.stdout", new=StringIO()) as output:
             print(r3)
             self.assertEqual(output.getvalue(), expected_r3)
 
     def test_update(self):
-        r1 = Rectangle(10, 10, 10, 10)
+        r1 = Square(10, 10, 10)
         r1.update(89)
         r1.update(89, 2)
         r1.update(89, 2, 3)
         r1.update(89, 2, 3, 4)
         r1.update(89, 2, 3, 4, 5)
-        expected_r1 = str(f"[Rectangle] ({r1.id}) {r1.x}/{r1.y} - ")
-        expected_r1 += str(f"{r1.width}/{r1.height}\n")
+        expected_r1 = str(f"[Square] ({r1.id}) {r1.x}/{r1.y} - ")
+        expected_r1 += str(f"{r1.size}\n")
         with patch("sys.stdout", new=StringIO()) as output:
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
 
     def test_update_kwargs(self):
-        r1 = Rectangle(10, 10, 10, 10)
+        r1 = Square(10, 10, 10, 10)
         r1.update(height=1)
         r1.update(width=1, x=2)
-        expected_r1 = str(f"[Rectangle] ({r1.id}) {r1.x}/{r1.y} - ")
-        expected_r1 += str(f"{r1.width}/{r1.height}\n")
+        expected_r1 = str(f"[Square] ({r1.id}) {r1.x}/{r1.y} - ")
+        expected_r1 += str(f"{r1.size}\n")
         with patch("sys.stdout", new=StringIO()) as output:
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
 
         r1.update(y=1, width=2, x=3, id=89)
         r1.update(x=1, height=2, y=3, width=4)
-        expected_r1 = str(f"[Rectangle] ({r1.id}) {r1.x}/{r1.y} - ")
-        expected_r1 += str(f"{r1.width}/{r1.height}\n")
+        expected_r1 = str(f"[Square] ({r1.id}) {r1.x}/{r1.y} - ")
+        expected_r1 += str(f"{r1.size}\n")
         with patch("sys.stdout", new=StringIO()) as output:
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
