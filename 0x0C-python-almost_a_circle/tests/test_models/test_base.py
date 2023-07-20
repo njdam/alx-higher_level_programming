@@ -76,6 +76,35 @@ class TestClassBase(unittest.TestCase):
                 print(file.read())
             self.assertEqual(output.getvalue(), expected_f)
 
+    def test_json_string_return(self):
+        list_input = [
+                {'id': 89, 'width': 10, 'height': 4},
+                {'id': 7, 'width': 1, 'height': 7}
+                ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+
+        expected_inp = str("[<class 'list'>] [{'id': 89, 'width': 10, ")
+        expected_inp += str("'height': 4}, {'id': 7, 'width': 1, ")
+        expected_inp += str("'height': 7}]\n")
+        with patch("sys.stdout", new=StringIO()) as output:
+            print("[{}] {}".format(type(list_input), list_input))
+            self.assertEqual(output.getvalue(), expected_inp)
+
+        expected_jsl = "[<class 'str'>] " + '[{"id": 89, "width": 10, '
+        expected_jsl += str('"height": 4}, {"id": 7, "width": 1, ')
+        expected_jsl += str('"height": 7}]\n')
+        with patch("sys.stdout", new=StringIO()) as output:
+            print("[{}] {}".format(type(json_list_input), json_list_input))
+            self.assertEqual(output.getvalue(), expected_jsl)
+
+        expected_outp = str("[<class 'list'>] [{'id': 89, 'width': 10, ")
+        expected_outp += str("'height': 4}, {'id': 7, 'width': 1, ")
+        expected_outp += str("'height': 7}]\n")
+        with patch("sys.stdout", new=StringIO()) as output:
+            print("[{}] {}".format(type(list_output), list_output))
+            self.assertEqual(output.getvalue(), expected_outp)
+
 
 if __name__ == '__main__':
     unittest.main()
