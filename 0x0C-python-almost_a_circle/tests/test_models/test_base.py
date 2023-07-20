@@ -3,6 +3,9 @@
 
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from io import StringIO
+from unittest.mock import patch
 
 
 class TestClassBase(unittest.TestCase):
@@ -40,6 +43,24 @@ class TestClassBase(unittest.TestCase):
         self.assertEqual(b4.id, 12)
         self.assertEqual(b5.id, 7)
         self.assertEqual(b1.id, 4)
+
+    def test_json_dict(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r1_dict = r1.to_dictionary()
+        expected_r1 = "{" + str(f"'x': {r1.x}, 'y': {r1.y}, 'id': {r1.id},")
+        expected_r1 += str(f" 'height': {r1.height}, 'width': {r1.width}")
+        expected_r1 += "}\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1_dict)
+            self.assertEqual(output.getvalue(), expected_r1)
+
+        expected_r2 = "[{" + str(f'"x": {r1.x}, "y": {r1.y}, "id": {r1.id}')
+        expected_r2 += str(f', "height": {r1.height}, "width": {r1.width}')
+        expected_r2 += "}]\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            json_dic_r1 = Base.to_json_string([r1_dict])
+            print(json_dic_r1)
+            self.assertEqual(output.getvalue(), expected_r2)
 
 
 if __name__ == '__main__':
