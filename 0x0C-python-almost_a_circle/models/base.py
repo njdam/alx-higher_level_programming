@@ -72,18 +72,10 @@ class Base:
         """A function `load_from_file` to return a list of instances."""
         filename = f"{cls.__name__}.json"
 
-        if not os.path.exists(filename):
+        try:
+            with open(filename, mode='r') as file:
+                data = cls.from_json_string(file.read())
+                return ([cls.create(**dic) for dic in data])
+
+        except FileNotFoundError:
             return ([])
-
-        with open(filename, mode='r') as file:
-            data = json.load(file)
-
-        r_data = [cls.create(**obj) for obj in data]
-
-        return (r_data)
-    """
-        elif cls.__name__ == "Square":
-            with open(Rectangle.json, mode=r) as r_file:
-                data = r_file.read()
-                return (json.loads(data))
-    """
