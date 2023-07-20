@@ -118,6 +118,33 @@ class TestingClassSquare(unittest.TestCase):
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
 
+    def test_to_dict(self):
+        r1 = Square(10, 2, 1)
+        r1_dict = r1.to_dictionary()
+        exp_dict_r1 = {'id': r1.id, 'x': r1.x, 'size': r1.size, 'y': r1.y}
+        expected_r1 = str(exp_dict_r1) + "\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1_dict)
+            self.assertEqual(output.getvalue(), expected_r1)
+
+        r2 = Square(1, 1)
+        expected_r2 = str(f"[Square] ({r2.id}) {r2.x}/{r2.y} - ")
+        expected_r2 += str(f"{r2.size}\n")
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r2)
+            self.assertEqual(output.getvalue(), expected_r2)
+
+        with patch("sys.stdout", new=StringIO()) as output:
+            r2.update(**r1_dict)
+            print(r2)
+            expected_u_r2 = str(f"[Square] ({r2.id}) {r2.x}/{r2.y} - ")
+            expected_u_r2 += str(f"{r1.size}\n")
+            self.assertEqual(output.getvalue(), expected_u_r2)
+
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1 == r2)
+            self.assertEqual(output.getvalue(), "False\n")
+
 
 if __name__ == '__main__':
     unittest.main()
