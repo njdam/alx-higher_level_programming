@@ -62,6 +62,20 @@ class TestClassBase(unittest.TestCase):
             print(json_dic_r1)
             self.assertEqual(output.getvalue(), expected_r2)
 
+    def test_json_string_to_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        expected_f = "[{" + str(f'"x": {r1.x}, "y": {r1.y}, "id": {r1.id}')
+        expected_f += str(f', "height": {r1.height}, "width": {r1.width}')
+        expected_f += '}, {' + str(f'"x": {r2.x}, "y": {r2.y}, "id": {r2.id}')
+        expected_f += str(f', "height": {r2.height}, "width": {r2.width}')
+        expected_f += "}]\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            with open("Rectangle.json", "r") as file:
+                print(file.read())
+            self.assertEqual(output.getvalue(), expected_f)
+
 
 if __name__ == '__main__':
     unittest.main()
