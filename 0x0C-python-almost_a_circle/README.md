@@ -103,7 +103,7 @@ city New York
 In Python, you can define a function with named arguments by specifying them in the function signature. Named arguments allow you to provide values for specific parameters in any order, as long as you specify the parameter names.
 
 Here's an example:
-
+```
 ```
 def greet(name, age):
     print(f"Hello, {name}! You are {age} years old.")
@@ -115,5 +115,46 @@ The output will be:
 ```
 Hello, John! You are 25 years old.
 ```
+```
 
 [Note That](): By using named arguments, you can provide values for function parameters without relying on the order of the arguments. This improves the readability and flexibility of the function calls.
+```
+
+[The main difference between json.load and json.loads lies in how they handle JSON data and the source of the data.]()
+
+json.load:
+json.load is used to read JSON data from a file-like object, such as a file or a network stream.
+It takes a file-like object as an argument and reads the JSON data from that source.
+After reading the JSON data, it automatically parses the data and returns the corresponding Python objects (e.g., lists, dictionaries).
+Example of using json.load:
+
+```
+import json
+
+# Reading JSON data from a file
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# 'data' will now contain the Python object representation of the JSON data
+print(data)
+```
+
+json.loads:
+json.loads is used to parse a JSON-formatted string directly.
+It takes a JSON-formatted string as an argument and converts it into Python objects (e.g., lists, dictionaries).
+Unlike json.load, it does not require a file-like object, as it works directly with JSON-formatted strings.
+Example of using json.loads:
+
+```
+import json
+
+# JSON-formatted string
+json_string = '{"name": "John", "age": 30}'
+
+# Parsing the JSON-formatted string
+data = json.loads(json_string)
+
+# 'data' will now contain the Python object representation of the JSON data
+print(data)
+```
+In summary, json.load is used to read and parse JSON data from a file-like object, while json.loads is used to directly parse a JSON-formatted string. Both functions achieve the same result of converting JSON data into Python objects, but they handle different sources of data.

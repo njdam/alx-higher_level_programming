@@ -2,6 +2,7 @@
 """This file bear a class Base which will be a base of all other classes."""
 
 import json
+import os
 
 
 class Base:
@@ -47,3 +48,41 @@ class Base:
         json_str = cls.to_json_string(data)
         with open(filename, mode='w') as file:
             file.write(json_str)
+    @classmethod
+    def create(cls, **dictionary):
+        """A function `create(**dict)` to return an instance with all
+        attributes already set.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+
+        elif cls.__name__ == "Square":
+            dummy_instance = cls(1)
+
+        else:
+            raise ValueError(f"Unsupported class: {cls.__name__}")
+
+        dummy_instance.update(**dictionary)  # Updating by **kwargs method
+
+        return (dummy_instance)
+
+    @classmethod
+    def load_from_file(cls):
+        """A function `load_from_file` to return a list of instances."""
+        filename = f"{cls.__name__}.json"
+
+        if not os.path.exists(filename):
+            return ([])
+
+        with open(filename, mode='r') as file:
+            data = json.load(file)
+
+        r_data = [cls.create(**obj) for obj in data]
+
+        return (r_data)
+    """
+        elif cls.__name__ == "Square":
+            with open(Rectangle.json, mode=r) as r_file:
+                data = r_file.read()
+                return (json.loads(data))
+    """
