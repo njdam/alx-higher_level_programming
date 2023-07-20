@@ -115,6 +115,42 @@ class TestingClassRectangle(unittest.TestCase):
             print(r1)
             self.assertEqual(output.getvalue(), expected_r1)
 
+    def test_print(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1)
+            expected_r1 = str(f"[Rectangle] ({r1.id}) {r1.x}/{r1.y} - ")
+            expected_r1 += str(f"{r1.width}/{r1.height}\n")
+            self.assertEqual(output.getvalue(), expected_r1)
+
+    def test_to_dict(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dict = r1.to_dictionary()
+        expected_r1 = "{" + str(f"'x': {r1.x}, 'y': {r1.y}, 'id': {r1.id},")
+        expected_r1 += str(f" 'height': {r1.height}, 'width': {r1.width}")
+        expected_r1 += "}\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1_dict)
+            self.assertEqual(output.getvalue(), expected_r1)
+
+        r2 = Rectangle(1, 1)
+        expected_r2 = str(f"[Rectangle] ({r2.id}) {r2.x}/{r2.y} - ")
+        expected_r2 += str(f"{r2.width}/{r2.height}\n")
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r2)
+            self.assertEqual(output.getvalue(), expected_r2)
+
+        with patch("sys.stdout", new=StringIO()) as output:
+            r2.update(**r1_dict)
+            print(r2)
+            expected_u_r2 = str(f"[Rectangle] ({r2.id}) {r2.x}/{r2.y} - ")
+            expected_u_r2 += str(f"{r2.width}/{r2.height}\n")
+            self.assertEqual(output.getvalue(), expected_u_r2)
+
+        with patch("sys.stdout", new=StringIO()) as output:
+            print(r1 == r2)
+            self.assertEqual(output.getvalue(), "False\n")
+
 
 if __name__ == '__main__':
     unittest.main()

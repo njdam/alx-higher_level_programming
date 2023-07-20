@@ -135,6 +135,12 @@ class Rectangle(Base):
                     self.__y = kwargs[key]
             """
 
+    def to_dictionary(self):
+        """A function to return dictionary represantation of a Rectangle."""
+        dic = {'x': self.x, 'y': self.y, 'id': self.id}
+        dic.update({'height': self.height, 'width': self.width})
+        return (dic)
+
     def __str__(self):
         """A function for returning string representation of rectangle."""
         string = "[" + str(getattr(Rectangle, '__name__')) + "]"
