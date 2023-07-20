@@ -48,6 +48,7 @@ class Base:
         json_str = cls.to_json_string(data)
         with open(filename, mode='w') as file:
             file.write(json_str)
+
     @classmethod
     def create(cls, **dictionary):
         """A function `create(**dict)` to return an instance with all
