@@ -3,7 +3,7 @@
 -- second_table description: id INT, name VARCHAR(256), score INT
 CREATE TABLE IF NOT EXISTS second_table (id INT, name VARCHAR(256), score INT);
 
--- A script should create these 4 records below:
+-- A script should create these 4 records:
 -- id = 1, name = “John”, score = 10
 -- id = 2, name = “Alex”, score = 3
 -- id = 3, name = “Bob”, score = 14
