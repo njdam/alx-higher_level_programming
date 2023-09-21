@@ -2,8 +2,8 @@
 """A script to add State object “Louisiana” to the database hbtn_0e_6_usa"""
 
 from model_state import Base, State
-from SQLAlchemy import create_engine
-from SQLAlchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from sys import argv
 
 
