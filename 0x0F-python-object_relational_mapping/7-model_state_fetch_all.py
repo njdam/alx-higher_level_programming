@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     DATABASE_URL = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(DATABASE_URL.format(argv[1], argv[2], argv[3]))
     # Make connection to Local Databases
