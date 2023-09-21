@@ -17,8 +17,7 @@ if __name__ == '__main__':
     session = Session()
 
     # Instance name Of State containing letter `a` ordered by state id
-    a_instances = session.query(State).filter(
-            State.name.like('%a%')).order_by(states.id)
+    a_instances = session.query(State).filter(State.name.like('%a%'))
     for instance in a_instances:
         print(instance.id, instance.name, sep=': ')
 
