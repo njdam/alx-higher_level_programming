@@ -13,17 +13,25 @@ from sys import argv
 if __name__ == '__main__':
     # Creating and connecting session modal to local database
     DATABASE_URL = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-    engine = create_engine(DATABASE_URL.format(argv[1], argv[2], argv[3]))
+    engine = create_engine(
+            DATABASE_URL.format(argv[1], argv[2], argv[3]),
+            pool_pre_ping=True
+            )
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
     # Creating new state called California
     new_state = State(name='California')
-    session.add(new_state)
 
-    # Creating new city called San Francisco in relation to California
-    new_city = City(name='San Francisco', state_id=new_state.id)
+    # Creating new city called San Francisco
+    new_city = City(name='San Francisco')
+
+    # Making relationship between new_state to new_city
+    new_state.cities.append(new_city)
+
+    # Adding created City and State to session model
+    session.add(new_state)
     session.add(new_city)
 
     # Committing all changes to database
