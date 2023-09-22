@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 session.query(City.id, City.name)
                 .filter(st_instance[0] == City.state_id).order_by(City.id)
                 ):
-            print("\t{}: {}".format(ct_instance[0], ct_instance[1]))
+            print("    {}: {}".format(ct_instance[0], ct_instance[1]))
 
     # Closing session model
     session.close()
