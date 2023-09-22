@@ -20,15 +20,10 @@ if __name__ == '__main__':
     session = Session()
 
     # Printing State and their related cities
-    for st_instance in (
-            session.query(State.id, State.name).order_by(State.id)
-            ):
-        print("{}: {}".format(st_instance[0], st_instance[1]))
-        for ct_instance in (
-                session.query(City.id, City.name)
-                .filter(st_instance[0] == City.state_id).order_by(City.id)
-                ):
-            print("    {}: {}".format(ct_instance[0], ct_instance[1]))
+    for instance in session.query(State).order_by(State.id):
+        print("{}: {}".format(instance.id, instance.name))
+        for ct_instance in instance.cities:
+            print("\t{}: {}".format(ct_instance.id, ct_instance.name))
 
     # Closing session model
     session.close()
