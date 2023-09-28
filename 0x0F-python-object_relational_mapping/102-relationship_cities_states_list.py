@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""A script to list all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa.
+"""A script to list all City objects from the database hbtn_0e_101_usa
+   In format: <city id>: <city name> -> <state name>
 """
 
 from relationship_city import City
@@ -19,11 +19,12 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Printing State and their related cities
-    for instance in session.query(State).order_by(State.id):
-        print("{}: {}".format(instance.id, instance.name))
-        for ct_instance in instance.cities:
-            print("\t{}: {}".format(ct_instance.id, ct_instance.name))
+    # Printing City id, City name and their related State name
+    for instance in (
+            session.query(City.id, City.name, State.name)
+            .filter(State.id == City.state_id).order_by(City.id)
+            ):
+        print("{}: {} -> {}".format(instance[0], instance[1], instance[2]))
 
     # Closing session model
     session.close()
