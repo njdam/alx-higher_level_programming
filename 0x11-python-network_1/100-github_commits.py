@@ -17,7 +17,7 @@ if __name__ == '__main__':
         owner_name = argv[2]
         api = "https://api.github.com"
 
-        # Request url for commits of a given repository and owner
+        # Request url(path parameter) for commits of repository of an owner
         request = "{}/repos/{}/{}/commits?{}".format(
                 api,
                 owner_name,
