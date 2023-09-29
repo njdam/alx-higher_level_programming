@@ -28,7 +28,7 @@ if __name__ == '__main__':
         # Requesting and retrieving the request results
         response = requests.get(
                 request,
-                headers={"Accept": "application/vnd.github.v3+json"}
+                headers={"Accept": "application/vnd.github+json"}
                 )
 
         # If status code is Ok (200) get sha number and author to be printed
