@@ -177,3 +177,47 @@ fs.writeFile('example.txt', 'Hello, world!', 'utf8', (err) => {
 ```
 
 [Note That:]() These are just some of the ways JavaScript excels in versatility, data manipulation, working with APIs, and handling file operations. Its broad range of use cases and rich ecosystem of libraries and frameworks make it a powerful language for developers.
+
+
+## The Steps to install Node.js Version 14 and npm without dependency by using NVM
+
+1. **Install NVM:**
+
+Open your terminal and run the following command to install NVM:
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+
+This will download and execute the NVM installation script. Make sure to use the latest version of NVM by checking the official NVM repository for the current version.
+
+2. **Close and Reopen Your Terminal:**
+
+After installing NVM, close your terminal and open a new terminal window or run the following command to activate NVM:
+```
+source ~/.nvm/nvm.sh
+```
+
+3. **Install Node.js:**
+
+You can now install the desired version of Node.js using NVM. For example, to install Node.js version 14, run:
+```
+nvm install 14
+```
+
+4. **Set the Default Node.js Version:**
+
+You can set the default Node.js version with the following command. Replace 14 with the version you've installed:
+```
+nvm alias default 14
+```
+
+5. **Verify the Installation:**
+
+To confirm that Node.js and npm are correctly installed, run:
+```
+node -v
+npm -v
+```
+You should see the versions of Node.js and npm that you've installed.
+
+[Note That:]() With NVM, you have the flexibility to switch between different Node.js versions as needed for your projects, and it helps you avoid package conflicts and unmet dependencies.

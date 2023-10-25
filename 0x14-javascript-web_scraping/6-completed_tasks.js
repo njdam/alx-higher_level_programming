@@ -1,22 +1,37 @@
 #!/usr/bin/node
-/*  script that computes the number of tasks completed by user id. */
+/* script that computes the number of tasks completed by user id. */
 
 const request = require('request');
+// Getting api url from commandline arguments
+const apiUrl = process.argv[2];
 
-if (process.argv.length > 2) {
-  request(process.argv[2], (err, res, body) => {
-    const aggregate = {};
-    if (err) {
-      console.log(err);
+// Function to compute numbers of completed tasks
+function computeCompletedTasks (todos) {
+  const completedTasksByUser = {};
 
-    JSON.parse(body).forEach(element => {
-      if (element.completed) {
-        if (!aggregate[element.userId]) {
-          aggregate[element.userId] = 0;
-        }
-        aggregate[element.userId]++;
+  // For each to to compute number of tasks completed
+  todos.forEach((todo) => {
+    if (todo.completed) {
+      const userId = todo.userId.toString();
+      if (completedTasksByUser[userId]) {
+        completedTasksByUser[userId]++;
+      } else {
+        completedTasksByUser[userId] = 1;
       }
-    });
-    console.log(aggregate);
+    }
   });
+
+  return completedTasksByUser;
 }
+
+// Requesting info from apiUrl
+request(apiUrl, (error, response, body) => {
+  if (!error && response.statusCode === 200) {
+    const todos = JSON.parse(body);
+    const completedTasks = computeCompletedTasks(todos);
+
+    console.log(completedTasks);
+  } else {
+    console.error('Error:', error);
+  }
+});
