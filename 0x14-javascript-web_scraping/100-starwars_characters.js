@@ -2,36 +2,22 @@
 /* A script to print all characters of a Star Wars movie */
 
 const request = require('request');
+const movieUrl = 'https://swapi-api.hbtn.io/api';
 const movieId = process.argv[2];
 
-const movieURL = `https://swapi.dev/api/films/${movieId}/`;
-
-request(movieURL, (error, response, body) => {
-  if (error) {
-    console.error('Error:', error);
-    process.exit(1);
-  }
-
-  if (response.statusCode === 200) {
-    const movieData = JSON.parse(body);
-    const characters = movieData.characters;
-
-    if (characters.length === 0) {
-      console.log(`No characters found for movieId ${movieId}`);
-    } else {
-      characters.forEach((characterURL, index) => {
-        request(characterURL, (charError, charResponse, charBody) => {
-          if (charError) {
-            console.error(`Error in fetching character ${index + 1}:`, charError);
-          } else if (charResponse.statusCode === 200) {
-            const characterData = JSON.parse(charBody);
-            console.log(characterData.name);
-          }
-        });
-      });
+if (process.argv.length > 2) {
+  request(`${movieUrl}/films/${movieId}/`, (error, response, body) => {
+    if (error) {
+      console.error('Error:', error);
     }
-  } else {
-    console.error('Error: Movie not found.');
-    process.exit(1);
-  }
-});
+    const charactersUrl = JSON.parse(body).characters;
+    charactersUrl.forEach(name => {
+      request(name, (error, response, body) => {
+        if (error) {
+          console.error('Error:', error);
+        }
+        console.log(JSON.parse(body).name);
+      });
+    });
+  });
+}
