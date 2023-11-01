@@ -3,7 +3,7 @@
 // Use strict mode To cath commmon coding  errors and imporove security
 'use strict';
 // Selecting header element
-const selectHeader = document.queryselector('header');
+const selectHeader = document.querySelector('header');
 
 // Updating text color of header element to red (#FF0000)
 selectHeader.style.color = '#FF0000';
